@@ -1,0 +1,5 @@
+{name:bot} ชื่อบอต
+{name:chat} ชื่อคนแชท
+{name:boss} ชื่อเจ้าของบอต
+{map:nearby_store_1} ร้านค้าที่ใกล้ที่สุด
+%map:nearby_store% แสดง list ร้านค้าใกล้เคียง
