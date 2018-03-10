@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 from chatterbot import ChatBot
+from pythainlp.tokenize import word_tokenize
 from chatterbot.trainers import ChatterBotCorpusTrainer
-
+from chatterbot.comparisons import jaccard_similarity
+'''def levenshtein_distance():
+    return 0'''
 chatbot = ChatBot(
     'Fah', # ชื่อแชตบ็อต
     storage_adapter='chatterbot.storage.SQLStorageAdapter', # กำหนดการจัดเก็บ ในที่นี้เลือก chatterbot.storage.SQLStorageAdapter เก็บเป็น Sqllite
-    database='fah.sqlite3' # ที่ตั้งฐานข้อมูล
+    database='fah.sqlite3', # ที่ตั้งฐานข้อมูล
+    statement_comparison_function=jaccard_similarity
 )
 chatbot.set_trainer(ChatterBotCorpusTrainer) # กำหนดให้ Train จากชุดข้อมูลของ Chatterbot
 

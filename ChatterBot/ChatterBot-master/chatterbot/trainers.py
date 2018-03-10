@@ -133,6 +133,7 @@ class ChatterBotCorpusTrainer(Trainer):
     def train(self, *corpus_paths):
 
         # Allow a list of corpora to be passed instead of arguments
+        from pythainlp.tokenize import word_tokenize
         if len(corpus_paths) == 1:
             if isinstance(corpus_paths[0], list):
                 corpus_paths = corpus_paths[0]

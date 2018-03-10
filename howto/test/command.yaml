@@ -1,0 +1,12 @@
+categories:
+- command
+conversations:
+- - ตอนนี้เวลาเท่าไร
+  - ขณะนี้เวลา {timenow} ค่ะ
+  - ตอนนี้เวลา {timenow} ค่ะ
+- - แปลคำว่า
+  - คำว่า {eng} แปลว่า {thai} ค่ะ,translate
+- - ค้นหาว่า
+  - กำลังเปิดกูเกิลเพื่อค้นหาคำว่า {word} ค่ะ,google-search
+- - โทรหา
+  - กำลังโทรหา {call} ค่ะ,call-phone
