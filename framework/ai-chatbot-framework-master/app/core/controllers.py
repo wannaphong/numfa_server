@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import html2text
 
 from flask import Blueprint, request

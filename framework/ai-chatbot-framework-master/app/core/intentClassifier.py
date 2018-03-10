@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import app.core.sentenceClassifer as sentenceClassifer
 from app.commons.validations import isListEmpty
 from app.stories.models import Story

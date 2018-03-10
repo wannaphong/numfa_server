@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 import pycrfsuite
 from bson import ObjectId
-from nltk import word_tokenize
+from pythainlp import word_tokenize
 
 from flask import current_app as app
 

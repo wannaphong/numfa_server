@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Blueprint, render_template
 
 chat = Blueprint('chat_blueprint', __name__,

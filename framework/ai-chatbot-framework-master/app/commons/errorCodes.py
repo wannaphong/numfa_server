@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 emptyInput = {"errorCode": 601, "description": "empty input"}
 InvalidInput = {"errorCode": 602, "description": "Invalid input"}
 

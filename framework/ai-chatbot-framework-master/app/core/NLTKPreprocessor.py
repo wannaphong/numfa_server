@@ -1,11 +1,12 @@
+# -*- coding: utf-8 -*-
 import string
 
-from nltk.corpus import stopwords as sw
+from pythainlp.corpus import stopwords as sw
 from nltk.corpus import wordnet as wn
 from nltk import wordpunct_tokenize
 from nltk import WordNetLemmatizer
 from nltk import sent_tokenize
-from nltk import pos_tag
+from pythainlp import pos_tag
 
 from sklearn.base import BaseEstimator, TransformerMixin
 
@@ -35,7 +36,7 @@ class NLTKPreprocessor(BaseEstimator, TransformerMixin):
         # Break the document into sentences
         for sent in sent_tokenize(document):
             # Break the sentence into part of speech tagged tokens
-            for token, tag in pos_tag(wordpunct_tokenize(sent)):
+            for token, tag in pos_tag(wordpunct_tokenize(sent),'artagger'):
                 # Apply preprocessing to the token
                 token = token.lower() if self.lower else token
                 token = token.strip() if self.strip else token

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # NER support functions for Feature extration
 def extractFeatures(sent, i):
     word = sent[i][0]

@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 from nltk.tag.perceptron import PerceptronTagger
-from nltk import word_tokenize
+from pythainlp import word_tokenize
 
 # Load and initialize Perceptron tagger
 tagger = PerceptronTagger()
