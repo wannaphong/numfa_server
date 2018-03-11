@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# https://www.youtube.com/watch?v=8lG6qRIdSA0
 import os
 import json
 import pythainlp

@@ -13,7 +13,22 @@ try:
 except ImportError:
     from difflib import SequenceMatcher
 
-
+from pythainlp.word_vector import thai2vec
+from pythainlp import word_tokenize
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
+model=thai2vec.get_model()
+def sentence_vectorizer(ss,dim=300,use_mean=True):
+    s = word_tokenize(ss)
+    vec = np.zeros((1,dim))
+    for word in s:
+        if word in model.wv.index2word:
+            vec+= model.wv.word_vec(word)
+        else: pass
+    if use_mean: vec /= len(s)
+    return vec
+def sentence_similarity(s1,s2):
+    return cosine_similarity(sentence_vectorizer(str(s1)),sentence_vectorizer(str(s2)))
 class Comparator:
 
     def __call__(self, statement_a, statement_b):
@@ -328,9 +343,21 @@ class JaccardSimilarity(Comparator):
 
 
 # ---------------------------------------- #
+class Thai(Comparator):
+    """
+    Compare two statements based on the Levenshtein distance
+    of each statement's text.
 
+    For example, there is a 65% similarity between the statements
+    "where is the post office?" and "looking for the post office"
+    based on the Levenshtein distance algorithm.
+    """
+
+    def compare(self, statement, other_statement):
+        return sentence_similarity(statement,other_statement)
 
 levenshtein_distance = LevenshteinDistance()
 synset_distance = SynsetDistance()
 sentiment_comparison = SentimentComparison()
 jaccard_similarity = JaccardSimilarity()
+thai=Thai()

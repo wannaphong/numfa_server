@@ -14,7 +14,7 @@ def sentence_vectorizer(ss,dim=300,use_mean=True):
     if use_mean: vec /= len(s)
     return vec
 def sentence_similarity(s1,s2):
-    return cosine_similarity(sentence_vectorizer(s1),sentence_vectorizer(s2))
+    return cosine_similarity(sentence_vectorizer(str(s1)),sentence_vectorizer(str(s2)))
 sentences = [
     "ผมเป็นนักศึกษา",
     "นักศึกษาคือผม",
