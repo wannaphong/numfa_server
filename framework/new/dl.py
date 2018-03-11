@@ -30,7 +30,7 @@ for i in range(len(x)):
     tok_x.append(pythainlp.word_tokenize(x[i].lower()))
     tok_y.append(pythainlp.word_tokenize(y[i].lower()))
 
-#sentend=np.ones((300L,),dtype=np.float32)
+sentend=np.ones((300,),dtype=np.float64)
 
 vec_x=[]
 for sent in tok_x:
@@ -41,6 +41,24 @@ vec_y=[]
 for sent in tok_y:
     sentvec=[model[w] for w in sent if w in model.vocab]
     vec_y.append(sentvec)
+for tok_sent in vec_x:
+    tok_sent[14:]=[]
+    tok_sent.append(sentend)
+    
 
-with open("db.pickle"."w") as f:
+for tok_sent in vec_x:
+    if len(tok_sent)<15:
+        for i in range(15-len(tok_sent)):
+            tok_sent.append(sentend)    
+            
+for tok_sent in vec_y:
+    tok_sent[14:]=[]
+    tok_sent.append(sentend)
+    
+
+for tok_sent in vec_y:
+    if len(tok_sent)<15:
+        for i in range(15-len(tok_sent)):
+            tok_sent.append(sentend) 
+with open("db.pickle","wb") as f:
     pickle.dump([vec_x,vec_y],f)

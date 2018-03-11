@@ -8,15 +8,16 @@ from pythainlp.word_vector import thai2vec
 from keras.layers.recurrent import LSTM,SimpleRNN
 from sklearn.model_selection import train_test_split
 
-with open("db.pickle") as f:
+with open("db.pickle", 'rb') as f:
     vec_x,vec_y=pickle.load(f)
 
-vec_x=np.array(vec_x,dtype=np.float)
-vec_y=np.array(vec_y,dtype=np.float)
+vec_x=np.array(vec_x,dtype=np.float64)
+vec_y=np.array(vec_y,dtype=np.float64)
 
 x_train,x_test,y_train,y_test = train_test_split(vec_x,vec_y,test_size=0.2,random_state=1)
 
 model = Sequential()
+print(x_train.shape)
 model.add(LSTM(output_dim=300,input_shape=x_train.shape[1:],return_sequences=True, init='glorot_normal', inner_init='glorot_normal', activation='sigmoid'))
 model.add(LSTM(output_dim=300,input_shape=x_train.shape[1:],return_sequences=True, init='glorot_normal', inner_init='glorot_normal', activation='sigmoid'))
 model.add(LSTM(output_dim=300,input_shape=x_train.shape[1:],return_sequences=True, init='glorot_normal', inner_init='glorot_normal', activation='sigmoid'))

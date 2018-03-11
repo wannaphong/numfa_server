@@ -11,7 +11,7 @@ model=load_model('LSTM5000.h5')
 mod = thai2vec.get_model()
 while(True):
     x=input("Enter the message : ")
-    sentend=np.ones((300,),dtype=np.float) 
+    sentend=np.ones((300,),dtype=np.float64) 
 
     sent=pythainlp.word_tokenize(x.lower())
     sentvec = [mod[w] for w in sent if w in mod.vocab]
