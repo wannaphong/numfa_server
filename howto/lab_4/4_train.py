@@ -2,7 +2,7 @@
 from chatterbot import ChatBot
 from pythainlp.tokenize import word_tokenize
 from chatterbot.trainers import ListTrainer
-from chatterbot.comparisons import thai
+from thai import thai
 import codecs,json
 with codecs.open("data.json", 'r',encoding='utf8') as f:
     data=json.load(f)

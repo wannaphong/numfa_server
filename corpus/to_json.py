@@ -10,7 +10,7 @@ def get_data(fileopen):
 			data.append(i)
 get_data("conversations.yaml")
 get_data("greeting.yaml")
-get_data("command.yaml")
+#get_data("command.yaml")
 dictdata={"conversations":data}
 print(dictdata)
 with codecs.open('data.json', 'w',encoding='utf8') as fp:

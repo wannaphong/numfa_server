@@ -1,0 +1,1 @@
+from thai import thai
