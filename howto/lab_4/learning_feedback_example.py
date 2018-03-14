@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from chatterbot import ChatBot
-
+from thai import thai
 """
 This example shows how to create a chat bot that
 will learn responses based on an additional feedback
@@ -13,10 +13,18 @@ element from the user.
 
 # Create a new instance of a ChatBot
 bot = ChatBot(
-    'Feedback Learning Bot',
-    storage_adapter='chatterbot.storage.SQLStorageAdapter',
+    'Fah', # ชื่อแชตบ็อต
+    storage_adapter='chatterbot.storage.SQLStorageAdapter', # กำหนดการจัดเก็บ ในที่นี้เลือก chatterbot.storage.SQLStorageAdapter เก็บเป็น Sqllite
+    database='fah2.sqlite3', # ที่ตั้งฐานข้อมูล
+    statement_comparison_function=thai,
     logic_adapters=[
-        'chatterbot.logic.BestMatch'
+        'chatterbot.logic.BestMatch',
+        'timenow.TimeLogicAdapter',
+        {
+            'import_path':'chatterbot.logic.LowConfidenceAdapter',
+            'threshold':0.65,
+            'default_response': 'ขออภัยค่ะ ฉันไม่เข้าใจสิ่งที่คุณต้องการบอกฉันค่ะ'
+        }
     ],
     input_adapter='chatterbot.input.TerminalAdapter',
     output_adapter='chatterbot.output.TerminalAdapter'
