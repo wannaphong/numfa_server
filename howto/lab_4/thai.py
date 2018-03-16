@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from pythainlp.word_vector import thai2vec
-from pythainlp import word_tokenize
+from pythainlp.tokenize import word_tokenize
 from sklearn.metrics.pairwise import cosine_similarity
 from chatterbot.comparisons import Comparator
 import numpy as np
@@ -18,12 +18,9 @@ def sentence_similarity(s1,s2):
     return cosine_similarity(sentence_vectorizer(str(s1)),sentence_vectorizer(str(s2)))
 class Thai(Comparator):
     """
-    Compare two statements based on the Levenshtein distance
-    of each statement's text.
-
-    For example, there is a 65% similarity between the statements
-    "where is the post office?" and "looking for the post office"
-    based on the Levenshtein distance algorithm.
+    Compare two statements based on thai2vec using word2vec
+	
+	by wannaphong
     """
 
     def compare(self, statement, other_statement):

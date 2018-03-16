@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from chatterbot import ChatBot
-from pythainlp.tokenize import word_tokenize
 from chatterbot.trainers import ListTrainer
 from thai import thai
 import codecs,json
@@ -16,10 +15,4 @@ chatbot = ChatBot(
 chatbot.set_trainer(ListTrainer)
 for data_list in cor:
     chatbot.train(data_list)
-text=""
-while True:
-    text=input("Text : ")
-    if text=="exit":
-        break
-    response = chatbot.get_response(text)
-    print(response)
+print("train : OK")
