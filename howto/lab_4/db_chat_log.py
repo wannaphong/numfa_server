@@ -33,12 +33,9 @@ def setup():
 		print(e)
 def add_data(textget,textsent):
 	conn = sqlite3.connect(db_file)
-	try:
-		sql = "INSERT INTO chatlog(txtget,textsent) VALUES(?,?);"
-		cur = conn.cursor()
-		cur.execute(sql, (textget,textsent))
-		conn.commit()
-		print(True)
-	except:
-		print(False)
+	sql = "INSERT INTO chatlog (txtget,txtsent) VALUES (?,?)"
+	cur = conn.cursor()
+	cur.execute(sql, (str(textget),str(textsent)))
+	conn.commit()
+	#print(True)
 	conn.close()
