@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import db_chat_log
+import db_chat_log,db_chat_train
 import pip
 list_pip=["pythainlp","flask-socketio","gensim","numpy","chatterbot","scikit-learn"]
 for data in list_pip:
@@ -7,3 +7,5 @@ for data in list_pip:
 print("pip install : OK")
 db_chat_log.setup()
 print("db chatlog : OK")
+db_chat_train.setup()
+print("db chattrain : OK")

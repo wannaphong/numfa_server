@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer
 from thai import thai
-import db_chat_log
+import db_chat_train,db_chat_log
 chatbot = ChatBot(
     'Fah', # ชื่อแชตบ็อต
     storage_adapter='chatterbot.storage.SQLStorageAdapter', # กำหนดการจัดเก็บ ในที่นี้เลือก chatterbot.storage.SQLStorageAdapter เก็บเป็น Sqllite
@@ -18,14 +19,17 @@ chatbot = ChatBot(
         }
     ]
 )
+chatbot.set_trainer(ListTrainer)
+def train_data(text):
+	chatbot.train(text.split(','))
+	return True
 def get_chatbot(text):
 	text_sent=chatbot.get_response(text)
 	db_chat_log.add_data(text,text_sent)
-	return str(text_sent)
+	return text_sent
 if __name__ == '__main__':
 	while True:
 		text=input("Text : ")
 		if text=="exit":
 			break
-		response = get_chatbot(text)
-		print(response)
+		train_data(text)
