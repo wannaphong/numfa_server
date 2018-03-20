@@ -7,10 +7,15 @@ chatbot = ChatBot(
     storage_adapter='chatterbot.storage.SQLStorageAdapter', # กำหนดการจัดเก็บ ในที่นี้เลือก chatterbot.storage.SQLStorageAdapter เก็บเป็น Sqllite
     database='fah2.sqlite3', # ที่ตั้งฐานข้อมูล
     statement_comparison_function=thai,
+    preprocessors=[
+        'chatterbot.preprocessors.clean_whitespace',
+        'chatterbot.preprocessors.unescape_html'
+    ],
+    filters=['chatterbot.filters.RepetitiveResponseFilter'],
     logic_adapters=[
         'chatterbot.logic.BestMatch',
         'timenow.TimeLogicAdapter',
-        'weather.WeatherLogicAdapter',
+        #'weather.WeatherLogicAdapter',
         {
             'import_path':'chatterbot.logic.LowConfidenceAdapter',
             'threshold':0.65,
