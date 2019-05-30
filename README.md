@@ -6,6 +6,8 @@ ChatBot พัฒนาโดย นาย วรรณพงษ์ ภัทท
 
 การทำงาน ทำด้วย ChatterBot ซึ่งเป็น Chatbot แบบ Machine leraning โดยถูกปรับแต่งโค้ดให้รองรับภาษาไทย และ pythainlp พร้อมด้วย thai2vec ถูกปรับแต่งให้ chatbot นี้สามารถเรียนรู้ข้อความใหม่ ๆ ได้
 
+Repo นี้เป็นอันแรก ที่ของการพัฒนา ดูอีกอันได้ที่ https://github.com/wannaphongcom/numfa_server_make2
+
 ## About
 พัฒนาโดย นาย วรรณพงษ์ ภัททิยไพบูลย์
 
